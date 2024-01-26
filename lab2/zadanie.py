@@ -41,5 +41,6 @@ else:
     print("No(")
 
 
-
+x=200
+print(isinstance(x, bool))
 
