@@ -30,3 +30,34 @@ print(list4)
 
 list.insert(4, "Kirill")
 print(list)
+
+thislist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya"]
+thislist.extend(tropical)
+"""добавляет в список с другого списка или массива"""
+print(thislist)
+
+thislist.remove("banana")
+thislist.pop(3)
+del thislist[0]
+print(thislist)
+
+# thislist.clear()
+# print(thislist)
+
+for x in thislist:
+    print(x)
+
+for i in range(len(thislist)):
+    print(thislist[i])
+
+print(".")
+
+i=0
+while i<len(thislist):
+    print(thislist[i])
+    i += 1
+
+print(".")
+[print(x) for x in thislist]
+
