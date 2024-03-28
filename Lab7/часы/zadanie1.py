@@ -27,7 +27,7 @@ while not done:
     minuta1 = pygame.transform.rotate(minuta, -minYgl)
     secunda1 = pygame.transform.rotate(secunda, -secYgl)
    
-    minutaRect = minuta1.get_rect(center=(395, 375))
+    minutaRect = minuta1.get_rect(center=(394, 384))
     secundaRect = secunda1.get_rect(center=(394, 384))
     screen.blit(pygame.transform.scale(chasi, (768, 768)), (0, 0))
     
@@ -35,4 +35,3 @@ while not done:
     screen.blit(secunda1, secundaRect)
     pygame.draw.circle(screen, black, (392, 386), 20)
     pygame.display.flip()
-
