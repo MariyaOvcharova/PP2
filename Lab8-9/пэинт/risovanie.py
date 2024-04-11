@@ -102,6 +102,7 @@ while not done:
                 draw_shape = True 
                 x1, y1 = event.pos 
  
+ # regular brash
         if event.type == pg.MOUSEMOTION  and LMBpressed: 
             if drawing_mode == "brush":
                 if x != 0 and y != 0: 
@@ -120,7 +121,7 @@ while not done:
         if event.type == pg.MOUSEBUTTONUP: 
             LMBpressed = False 
             x1 , y1 = event.pos 
-             
+      #change mode for drawing things       
             if drawing_mode == "rect": 
                     print("DSAD") 
                     size = max(abs(x - x1), abs(y - y1)) 
