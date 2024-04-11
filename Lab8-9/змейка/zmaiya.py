@@ -163,11 +163,6 @@ while not done:
             pygame.quit()
             sys.exit()
 
-    if snake.check_self_collision():
-        print("Game Over: Self collision!")
-        pygame.quit()
-        sys.exit()
-
     snake.move()
     snake.draw()
 
@@ -202,7 +197,7 @@ while not done:
 #change level
     if Level % levelN==0:
         levelN+=2
-        
+
     if Level > LevelNew:
         FPS+=0.1
     
