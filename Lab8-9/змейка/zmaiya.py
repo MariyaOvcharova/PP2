@@ -30,7 +30,7 @@ LevelNew = 0
 timer1 = pygame.time.get_ticks()
 respawn1 = 3000
 
-FPS = 5
+FPS = 3
 clock = pygame.time.Clock()
 
 CELL = 30
@@ -76,11 +76,11 @@ class Snake:
     def check_collision(self, food):
         head = self.body[0]
         if head.x == food.pos.x and head.y == food.pos.y:
-            self.body.append(Point(head.x, head.y))
+            self.body.append(Point(head.x - self.dx , head.y - self.dy))
             return True
         if head.x == betterfood.pos.x and head.y == betterfood.pos.y:
-            self.body.append(Point(head.x, head.y))
-            self.body.append(Point(head.x, head.y))
+            self.body.append(Point(head.x - 2*self.dx , head.y - 2*self.dy))
+            self.body.append(Point(head.x - 2*self.dx , head.y - 2*self.dy))
             return True
         return False
     
@@ -157,11 +157,17 @@ while not done:
     draw_grid_chess()
 
 #check collision with wall and self
-    for segment in snake.body:
-        if segment.x < 0 or segment.x >= WIDTH // CELL or segment.y < 0 or segment.y >= HEIGHT // CELL:
+    for segment in snake.body[1:]:
+        if snake.body[0].x < 0 or snake.body[0].x >= WIDTH // CELL or snake.body[0].y < 0 or snake.body[0].y >= HEIGHT // CELL:
             print("wall")
             pygame.quit()
             sys.exit()
+        if snake.body[0].x == segment.x and snake.body[0].y == segment.y:
+            print("self")
+            pygame.quit()
+            sys.exit()
+
+
 
     snake.move()
     snake.draw()
@@ -198,7 +204,7 @@ while not done:
     if Level % levelN==0:
         levelN+=2
 
-    if Level > LevelNew:
+    if Level > LevelNew/2:
         FPS+=0.1
     
     levelll = font_small.render(str(Level), True, colorBLACK)
