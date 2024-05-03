@@ -35,3 +35,4 @@ while not done:
     screen.blit(secunda1, secundaRect)
     pygame.draw.circle(screen, black, (392, 386), 20)
     pygame.display.flip()
+    
